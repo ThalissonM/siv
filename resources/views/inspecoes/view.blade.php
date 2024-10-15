@@ -107,7 +107,7 @@
                                     <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r">
                                         <div class="flex items-center ps-3">
                                             <input disabled id="pergunta-{{ $pergunta->id }}-sim" type="radio" value="sim" name="pergunta[{{ $pergunta->id }}][radio]" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500"  {{ isset($pergunta->resposta) && $pergunta->resposta == 'sim' ? 'checked' : '' }}>
-                                            <label for="pergunta-{{ $pergunta->id }}-sim" class="w-full py-3 ms-2 text-sm font-medium text-gray-900">Sim</label>
+                                            <label for="pergunta-{{ $pergunta->id }}-sim" class="w-full py-3 ms-2 text-sm font-medium text-gray-900">OK</label>
                                         </div>
                                     </li>
                                     <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r">

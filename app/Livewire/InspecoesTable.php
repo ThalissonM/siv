@@ -127,6 +127,10 @@ final class InspecoesTable extends PowerGridComponent
                 ->class('bg-green-500 rounded-md cursor-pointer text-white px-3 py-2 m-1 text-sm')
                 ->route('inspecoes/downloadxlsinspecao', ['id' => $row->id]),
             Button::add('view')
+                ->slot('.pdf')
+                ->class('bg-red-500 rounded-md cursor-pointer text-white px-3 py-2 m-1 text-sm')
+                ->route('inspecoes/pdf', ['id' => $row->id]),
+            Button::add('view')
                 ->slot('Ver')
                 ->class('bg-indigo-500 rounded-md cursor-pointer text-white px-3 py-2 m-1 text-sm')
                 ->route('inspecoes/edit', ['id' => $row->id]),

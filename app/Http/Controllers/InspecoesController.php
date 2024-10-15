@@ -241,6 +241,27 @@ class InspecoesController extends Controller
         return view('inspecoes.view',['inspecao'=>$inspecoes,'motoristas'=>$motoristas,'veiculos'=>$veiculos,'perguntas'=>$perguntas,'modelo'=>$modelo]);
     }
 
+    public function pdf(Inspecoes $inspecoes)
+    {
+        //
+
+        $veiculos = Veiculos::where('modelo_veiculo_id',$inspecoes->modelo_veiculo_id)->get();
+        $motoristas = Motoristas::all();
+        $perguntas = Perguntas::where('modelo_veiculo_id',$inspecoes->modelo_veiculo_id)->get();
+        foreach ($perguntas as $key => $pergunta) {
+            $resposta = Respostas::where('inspecao_id',$inspecoes->id)->where('pergunta_id',$pergunta->id)->first();
+            // dd($resposta,$inspecoes->id,$pergunta->id);
+            if($resposta!=null)
+            {
+                $pergunta->resposta=$resposta->resposta;
+                $pergunta->justificativa=$resposta->justificativa;
+            }
+        }
+        $modelo=ModelosVeiculos::find($inspecoes->modelo_veiculo_id);
+        // $respostas = Respostas::where('inspecao_id',$inspecoes->id)->get();
+        return view('inspecoes.pdf',['inspecao'=>$inspecoes,'motoristas'=>$motoristas,'veiculos'=>$veiculos,'perguntas'=>$perguntas,'modelo'=>$modelo]);
+    }
+
     /**
      * Update the specified resource in storage.
      */

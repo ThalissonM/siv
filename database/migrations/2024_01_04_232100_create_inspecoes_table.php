@@ -18,8 +18,8 @@ return new class extends Migration
             $table->foreignId('veiculo_id');
             $table->foreignId('modelo_veiculo_id');
             $table->string('uvs')->nullable();
-            $table->integer('horimetro')->nullable();
-            $table->integer('km')->nullable();
+            $table->float('horimetro')->nullable();
+            $table->float('km')->nullable();
             $table->dateTime('data')->nullable();
             $table->string('turno')->nullable();
             $table->string('observacao')->nullable();

@@ -91,6 +91,11 @@ Route::middleware([
         $controler = new InspecoesController;
         return $controler->view($inspecao);
     })->name('inspecoes/view');
+    Route::get('/inspecoes/pdf/{id}', function (string $id) {
+        $inspecao = Inspecoes::find($id);
+        $controler = new InspecoesController;
+        return $controler->pdf($inspecao);
+    })->name('inspecoes/pdf');
 
     Route::get('/inspecoes/downloadcsvinspecao/{id}', function (string $id) {
         $inspecao = Inspecoes::find($id);
@@ -172,4 +177,10 @@ Route::middleware([
 
 
     Route::get('/historico', [HistoricoController::class, 'index'])->name('historico');
+
+    // relatorios
+    Route::get('/relatorios', [App\Http\Controllers\Relatorios::class, 'index'])->name('relatorios');
+    Route::get('/relatorios/relatorio_veiculo', [App\Http\Controllers\Relatorios::class, 'relatorio_veiculo'])->name('relatorios/relatorio_veiculo');
+    Route::get('/relatorios/relatorio_modelo_veiculo', [App\Http\Controllers\Relatorios::class, 'relatorio_modelo_veiculo'])->name('relatorios/relatorio_modelo_veiculo');
+    Route::get('/relatorios/relatorio_veiculo_motorista', [App\Http\Controllers\Relatorios::class, 'relatorio_veiculo_motorista'])->name('relatorios/relatorio_veiculo_motorista');
 });

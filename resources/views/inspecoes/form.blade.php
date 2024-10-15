@@ -74,11 +74,11 @@
                         </div>
                         <div>
                             <label for="horimetro" class="block mb-2 text-sm font-medium text-gray-900 ">Horimetro</label>
-                            <input type="number" value="{{ isset($inspecao) ? $inspecao->horimetro : '' }}" id="horimetro" name="horimetro" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " placeholder="10" required>
+                            <input type="number" step="0.1" value="{{ isset($inspecao) ? $inspecao->horimetro : '' }}" id="horimetro" name="horimetro" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " placeholder="10" required>
                         </div>
                         <div>
                             <label for="km" class="block mb-2 text-sm font-medium text-gray-900">Quilometragem</label>
-                            <input type="number" value="{{ isset($inspecao) ? $inspecao->km : '' }}" id="km" name="km" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " placeholder="50" required>
+                            <input type="number" step="0.1" value="{{ isset($inspecao) ? $inspecao->km : '' }}" id="km" name="km" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " placeholder="50" required>
                         </div>
                         <div>
                             <label for="data" class="block mb-2 text-sm font-medium text-gray-900 ">Data</label>
@@ -108,7 +108,7 @@
                                     <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r">
                                         <div class="flex items-center ps-3">
                                             <input id="pergunta-{{ $pergunta->id }}-sim" type="radio" value="sim" name="pergunta[{{ $pergunta->id }}][radio]" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500"  {{ isset($pergunta->resposta) && $pergunta->resposta == 'sim' ? 'checked' : '' }}>
-                                            <label for="pergunta-{{ $pergunta->id }}-sim" class="w-full py-3 ms-2 text-sm font-medium text-gray-900">Sim</label>
+                                            <label for="pergunta-{{ $pergunta->id }}-sim" class="w-full py-3 ms-2 text-sm font-medium text-gray-900">OK</label>
                                         </div>
                                     </li>
                                     <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r">
